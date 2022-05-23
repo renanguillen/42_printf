@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:38:57 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 19:42:03 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:49:47 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
+#include "../includes/printf.h"
 
 void	ft_putchar(char c)
 {

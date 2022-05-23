@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:43:07 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 19:43:37 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:49:52 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
+#include "../includes/printf.h"
 
 void	ft_puthexa(unsigned int x)
 {

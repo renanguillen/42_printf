@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:36:33 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 20:23:33 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:50:08 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
+#include "../includes/printf.h"
 
 char	*ft_strchr(const char *s)
 {

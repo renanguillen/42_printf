@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:44:12 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 20:24:41 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:49:21 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
+#include "../includes/printf.h"
 
 static int	if_d(int nbr)
 {

@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 17:12:53 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 19:58:04 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:49:30 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../includes/printf.h"
 
 int	ft_printf(const char *format, ...)
 {

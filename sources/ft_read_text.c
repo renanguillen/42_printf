@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:49:53 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 19:50:05 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:50:02 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <printf.h>
+#include "../includes/printf.h"
 
 const char	*ft_read_text(const char *format, t_structure *sc)
 {
