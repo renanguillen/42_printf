@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 17:12:53 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 19:58:04 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/23 19:41:26 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/05/23 19:41:39 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include <printf.h>
 
-int	ft_printf(const char *format, ...)
+void	ft_putnbr(int nbr)
 {
-	va_list		arg;
-	t_structure	sc;
-
-	va_start(arg, format);
-	sc.len = 0;
-	sc.wid = 0;
-	while (*format)
+	if (nbr == -2147483648)
 	{
-		if (*format == '%')
-			format = ft_search_arg(arg, format + 1, &sc);
-		else
-			format = ft_read_text(format, &sc);
-		if (!format)
-		{
-			write(1, "(null)", 6);
-			va_end(arg);
-			return (sc.len);
-		}
+		write (1, "-2147483648", 11);
+		return ;
 	}
-	va_end(arg);
-	return (sc.len);
+	if (nbr >= 0 && nbr <= 9)
+		ft_putchar(nbr + 48);
+	else if (nbr < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(-nbr);
+	}
+	else
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
 }
