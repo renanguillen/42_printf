@@ -6,12 +6,17 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:44:12 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 19:48:17 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:24:41 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <printf.h>
+
 static int	if_d(int nbr)
 {
+	int	i;
+	
+	i = 0;
 	while (nbr)
 	{
 		nbr /= 10;
@@ -22,6 +27,9 @@ static int	if_d(int nbr)
 
 static int	if_x(int nbr)
 {
+	int	i;
+	
+	i = 0;
 	while (nbr)
 	{
 		nbr /= 16;
