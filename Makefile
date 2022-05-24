@@ -41,7 +41,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	@cc main.c printf.a -o test
+	@cc $(CFLAGS) main.c printf.a -o test
 	clear
 	./test
 

@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:44:12 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 20:49:21 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/24 20:11:56 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	if_d(int nbr)
 {
 	int	i;
-	
+
 	i = 0;
 	while (nbr)
 	{
@@ -28,7 +28,7 @@ static int	if_d(int nbr)
 static int	if_x(int nbr)
 {
 	int	i;
-	
+
 	i = 0;
 	while (nbr)
 	{
