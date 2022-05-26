@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 17:14:58 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 23:10:24 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/26 23:18:35 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h>
 
 int			ft_strlen(const char *s);
 void		ft_putchar(char c);
