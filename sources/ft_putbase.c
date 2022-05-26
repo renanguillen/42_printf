@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 23:18:10 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 19:27:42 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/26 22:42:58 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#include "../includes/ft_printf.h"
 
 void	ft_putbase(unsigned long num, char *base)
 {

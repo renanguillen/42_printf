@@ -1,4 +1,4 @@
-NAME = printf.a
+NAME = libftprintf.a
 
 PATH_SRCS = ./sources/
 PATH_OBJS = ./objects/
@@ -18,7 +18,7 @@ SRCS =  $(addprefix $(PATH_SRCS),\
 
 OBJS = $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 INCLUDES = -I $(PATH_INCLUDES)
 
 MAKELIB = ar rcs
@@ -42,7 +42,7 @@ fclean: clean
 re: fclean all
 
 test: tclean all
-	cc $(CFLAGS) main.c printf.a -o test
+	cc $(CFLAGS) main.c $(NAME) -o test
 	clear
 	./test
 

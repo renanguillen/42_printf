@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 17:14:58 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 21:42:09 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/26 23:10:24 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # define HEXA_LOWER "0123456789abcdef"
 # define HEXA_UPPER "0123456789ABCDEF"
@@ -19,6 +19,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdio.h>
 
 int			ft_strlen(const char *s);
 void		ft_putchar(char c);

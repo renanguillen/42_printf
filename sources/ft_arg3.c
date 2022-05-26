@@ -6,11 +6,11 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 19:51:46 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/26 21:48:08 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_arg3(const char *format, int len, va_list arg)
 {
