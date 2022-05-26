@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_validation.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 19:41:26 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/23 20:49:57 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/26 19:53:44 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/05/26 21:38:35 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-void	ft_putnbr(int nbr)
+int	ft_validation(const char *format, int len, va_list arg)
 {
-	if (nbr == -2147483648)
-	{
-		write (1, "-2147483648", 11);
-		return ;
-	}
-	if (nbr >= 0 && nbr <= 9)
-		ft_putchar(nbr + 48);
-	else if (nbr < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(-nbr);
-	}
+	char	c;
+
+	c = *format;
+	if (c == '%' || c == 'c')
+		len = ft_arg1(format, len, arg);
+	else if (c == 's' || c == 'd' || c == 'i')
+		len = ft_arg2(format, len, arg);
+	else if (c == 'p')
+		len = ft_arg3(format, len, arg);
+	else if (c == 'u' || c == 'x' || c == 'X')
+		len = ft_arg4(format, len, arg);
 	else
-	{
-		ft_putnbr(nbr / 10);
-		ft_putnbr(nbr % 10);
-	}
+		len = 0;
+	return (len);
 }

@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_arg1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 22:08:51 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 21:37:56 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/26 19:49:05 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/05/26 19:49:25 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_arg1(const char *format, int len, va_list arg)
 {
-	va_list	arg;
-	int		len;
+	int	i;
 
-	len = 0;
-	va_start(arg, format);
-	while (*format)
+	if (*format == '%')
 	{
-		if (*format != '%')
-		{
-			write(1, format++, 1);
-			len++;
-		}
-		else
-		{
-			format++;
-			len = ft_validation(format, len, arg);
-			format++;
-		}
+		write(1, "%", 1);
+		len++;
+	}
+	else if (*format == 'c')
+	{
+		i = va_arg(arg, int);
+		write(1, &i, 1);
+		len++;
 	}
 	return (len);
 }

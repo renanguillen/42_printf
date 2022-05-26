@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_countdigits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 22:08:51 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 21:37:56 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/26 19:28:25 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/05/26 20:49:02 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_countdigits(unsigned long num, int base)
 {
-	va_list	arg;
-	int		len;
+	int	count;
 
-	len = 0;
-	va_start(arg, format);
-	while (*format)
+	count = 0;
+	if (num == 0)
+		return (1);
+	while (num >= 1)
 	{
-		if (*format != '%')
-		{
-			write(1, format++, 1);
-			len++;
-		}
-		else
-		{
-			format++;
-			len = ft_validation(format, len, arg);
-			format++;
-		}
+		num /= base;
+		count++;
 	}
-	return (len);
+	return (count);
 }

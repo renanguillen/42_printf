@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_arg4.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 22:08:51 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 21:37:56 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/05/26 21:40:03 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_arg4(const char *format, int len, va_list arg)
 {
-	va_list	arg;
-	int		len;
+	int				i;
+	unsigned int	u;
 
-	len = 0;
-	va_start(arg, format);
-	while (*format)
+	if (*format == 'u')
 	{
-		if (*format != '%')
-		{
-			write(1, format++, 1);
-			len++;
-		}
-		else
-		{
-			format++;
-			len = ft_validation(format, len, arg);
-			format++;
-		}
+		u = va_arg(arg, unsigned int);
+		ft_putbase(u, DECA);
+		len = len + ft_countdigits(u, 10);
+	}
+	else if (*format == 'x')
+	{
+		i = va_arg(arg, int);
+		ft_putbase(i, HEXA_LOWER);
+		len = len + ft_countdigits(i, 16);
+	}
+	else if (*format == 'X')
+	{
+		i = va_arg(arg, int);
+		ft_putbase(i, HEXA_UPPER);
+		len = len + ft_countdigits(i, 16);
 	}
 	return (len);
 }

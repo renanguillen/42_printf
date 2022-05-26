@@ -7,7 +7,13 @@ PATH_INCLUDES = ./includes/
 SRCS =  $(addprefix $(PATH_SRCS),\
 		ft_printf.c\
 		ft_strlen.c\
-		ft_putnbr.c\
+		ft_putbase.c\
+		ft_countdigits.c\
+		ft_validation.c\
+		ft_arg1.c\
+		ft_arg2.c\
+		ft_arg3.c\
+		ft_arg4.c\
 		ft_putchar.c)
 
 OBJS = $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
@@ -35,7 +41,7 @@ fclean: clean
 
 re: fclean all
 
-test: all
+test: tclean all
 	cc $(CFLAGS) main.c printf.a -o test
 	clear
 	./test

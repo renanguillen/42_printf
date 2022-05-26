@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_arg3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 22:08:51 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 21:37:56 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/05/26 19:51:46 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_arg3(const char *format, int len, va_list arg)
 {
-	va_list	arg;
-	int		len;
+	char			*s;
+	unsigned long	p;
 
-	len = 0;
-	va_start(arg, format);
-	while (*format)
+	if (*format == 'p')
 	{
-		if (*format != '%')
+		p = va_arg(arg, unsigned long);
+		if (!p)
 		{
-			write(1, format++, 1);
-			len++;
+			s = "(nil)";
+			write(1, s, ft_strlen(s));
+			len = len + ft_strlen(s);
 		}
 		else
 		{
-			format++;
-			len = ft_validation(format, len, arg);
-			format++;
+			write(1, "0x", 2);
+			ft_putbase(p, HEXA_LOWER);
+			len = len + ft_countdigits(p, 16) + 2;
 		}
 	}
 	return (len);
