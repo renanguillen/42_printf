@@ -10,10 +10,10 @@ SRCS =  $(addprefix $(PATH_SRCS),\
 		ft_putbase.c\
 		ft_countdigits.c\
 		ft_validation.c\
-		ft_arg1.c\
-		ft_arg2.c\
-		ft_arg3.c\
-		ft_arg4.c\
+		ft_arg_c.c\
+		ft_arg_p.c\
+		ft_arg_sdi.c\
+		ft_arg_uxX.c\
 		ft_putchar.c)
 
 OBJS = $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))

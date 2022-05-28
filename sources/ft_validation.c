@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:53:44 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 22:48:10 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:28:50 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	ft_validation(const char *format, int len, va_list arg)
 
 	c = *format;
 	if (c == '%' || c == 'c')
-		len = ft_arg1(format, len, arg);
+		len = ft_arg_c(format, len, arg);
 	else if (c == 's' || c == 'd' || c == 'i')
-		len = ft_arg2(format, len, arg);
+		len = ft_arg_sdi(format, len, arg);
 	else if (c == 'p')
-		len = ft_arg3(format, len, arg);
+		len = ft_arg_p(format, len, arg);
 	else if (c == 'u' || c == 'x' || c == 'X')
-		len = ft_arg4(format, len, arg);
+		len = ft_arg_uxX(format, len, arg);
 	else
 		len = 0;
 	return (len);

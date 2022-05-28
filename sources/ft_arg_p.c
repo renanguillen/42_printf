@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg2.c                                          :+:      :+:    :+:   */
+/*   ft_arg3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 19:50:09 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 23:06:59 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/05/28 14:30:25 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_arg2(const char *format, int len, va_list arg)
+int	ft_arg_p(const char *format, int len, va_list arg)
 {
-	char		*s;
-	long int	i;
+	char			*s;
+	unsigned long	p;
 
-	if (*format == 's')
+	if (*format == 'p')
 	{
-		s = va_arg(arg, char *);
-		if (!s)
-			s = "(null)";
-		write(1, s, ft_strlen(s));
-		len = len + ft_strlen(s);
-	}
-	else if (*format == 'd' || *format == 'i')
-	{
-		i = va_arg(arg, int);
-		if (i < 0)
+		p = va_arg(arg, unsigned long);
+		if (!p)
 		{
-			write (1, "-", 1);
-			len++;
-			i *= -1;
+			s = "(nil)";
+			write(1, s, ft_strlen(s));
+			len = len + ft_strlen(s);
 		}
-		ft_putbase(i, DECA);
-		len += ft_countdigits(i, 10);
+		else
+		{
+			write(1, "0x", 2);
+			ft_putbase(p, HEXA_LOWER);
+			len = len + ft_countdigits(p, 16) + 2;
+		}
 	}
 	return (len);
 }

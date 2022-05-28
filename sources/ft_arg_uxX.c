@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg3.c                                          :+:      :+:    :+:   */
+/*   ft_arg4.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/05/26 21:48:08 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:30:34 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_arg3(const char *format, int len, va_list arg)
+int	ft_arg_uxX(const char *format, int len, va_list arg)
 {
-	char			*s;
-	unsigned long	p;
+	unsigned int	u;
 
-	if (*format == 'p')
+	if (*format == 'u')
 	{
-		p = va_arg(arg, unsigned long);
-		if (!p)
-		{
-			s = "(nil)";
-			write(1, s, ft_strlen(s));
-			len = len + ft_strlen(s);
-		}
-		else
-		{
-			write(1, "0x", 2);
-			ft_putbase(p, HEXA_LOWER);
-			len = len + ft_countdigits(p, 16) + 2;
-		}
+		u = va_arg(arg, unsigned int);
+		ft_putbase(u, DECA);
+		len = len + ft_countdigits(u, 10);
+	}
+	else if (*format == 'x')
+	{
+		u = va_arg(arg, unsigned int);
+		ft_putbase(u, HEXA_LOWER);
+		len = len + ft_countdigits(u, 16);
+	}
+	else if (*format == 'X')
+	{
+		u = va_arg(arg, unsigned int);
+		ft_putbase(u, HEXA_UPPER);
+		len = len + ft_countdigits(u, 16);
 	}
 	return (len);
 }
