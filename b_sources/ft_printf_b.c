@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validation.c                                    :+:      :+:    :+:   */
+/*   ft_printf_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 19:53:44 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/06 19:15:55 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/24 22:08:51 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/06/06 20:01:46 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../b_includes/ft_printf_b.h"
 
-int	ft_validation(const char *format, int len, va_list arg)
+int	ft_printf(const char *format, ...)
 {
-	char	c;
+	va_list	arg;
+	int		len;
+	t_flags	flag;
 
-	c = *format;
-	if (c == '%' || c == 'c')
-		len = ft_arg_c(format, len, arg);
-	else if (c == 's' || c == 'd' || c == 'i')
-		len = ft_arg_sdi(format, len, arg);
-	else if (c == 'p')
-		len = ft_arg_p(format, len, arg);
-	else if (c == 'u' || c == 'x' || c == 'X')
-		len = ft_arg_ux(format, len, arg);
-	else
-		len = 0;
+	len = 0;
+	ft_bzero(&flag, sizeof(t_flags));
+	va_start(arg, format);
+	while (*format)
+	{
+		if (*format != '%')
+		{
+			write(1, format++, 1);
+			len++;
+		}
+		else
+		{
+			format++;
+			ft_checkflags(&format, &flag);
+			len = ft_validation(format, len, arg);
+			format++;
+		}
+	}
+	va_end(arg);
 	return (len);
 }
