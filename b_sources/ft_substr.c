@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_b.c                                      :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 22:08:51 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/09 21:17:05 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/04/21 20:38:45 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/06/09 22:22:12 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/ft_printf_b.h"
 
-int	ft_printf(const char *format, ...)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	va_list	arg;
-	int		len;
-	t_flags	flag;
+	char			*sub;
+	unsigned int	i;
+	unsigned int	truelen;
+	unsigned int	slen;
 
-	len = 0;
-	ft_bzero(&flag, sizeof(t_flags));
-	va_start(arg, format);
-	while (*format)
+	i = 0;
+	slen = ft_strlen(s);
+	if (start >= slen)
+		truelen = 1;
+	else if (len >= slen)
+		truelen = slen - start + 1;
+	else
+		truelen = len + 1;
+	sub = (char *)malloc(truelen);
+	if (!sub)
+		return (NULL);
+	while ((start < slen) && (i < len))
 	{
-		if (*format != '%')
-		{
-			write(1, format++, 1);
-			len++;
-		}
-		else
-		{
-			format++;
-			ft_checkflags(&format, &flag);
-			len = ft_validation(format, len, arg, &flag);
-			format++;
-		}
-	}
-	va_end(arg);
-	return (len);
+		sub[i] = s[start];
+		i++;
+		start++;
+	}	
+	sub[i] = 0;
+	return (sub);
 }

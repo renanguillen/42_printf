@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-NAME_BONUS = libftprintf_b.a
+NAME_BONUS = libftprintf.a
 
 PATH_SRCS = ./sources/
 PATH_OBJS = ./objects/
@@ -17,7 +17,7 @@ SRCS =  $(addprefix $(PATH_SRCS),\
 		ft_arg_c.c\
 		ft_arg_p.c\
 		ft_arg_sdi.c\
-		ft_arg_uxX.c\
+		ft_arg_ux.c\
 		ft_putchar.c)
 
 OBJS = $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
@@ -38,7 +38,8 @@ SRCS_BONUS = $(addprefix $(PATH_SRCS_BONUS),\
 		ft_putchar.c\
 		ft_bzero.c\
 		ft_checkflags.c\
-		ft_isdigit.c)
+		ft_isdigit.c\
+		ft_substr.c)
 
 OBJS_BONUS = $(patsubst $(PATH_SRCS_BONUS)%.c, $(PATH_OBJS_BONUS)%.o, $(SRCS_BONUS))
 

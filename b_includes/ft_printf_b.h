@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 17:14:58 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/06 20:03:58 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/09 22:21:57 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_flags
 {
@@ -36,14 +37,16 @@ int			ft_strlen(const char *s);
 void		ft_putchar(char c);
 void		ft_putbase(unsigned long num, char *base);
 int			ft_countdigits(unsigned long num, int base);
-int			ft_validation(const char *format, int len, va_list arg);
-int			ft_arg_c(const char *format, int len, va_list arg);
-int			ft_arg_p(const char *format, int len, va_list arg);
-int			ft_arg_sdi(const char *format, int len, va_list arg);
-int			ft_arg_ux(const char *format, int len, va_list arg);
+int			ft_validation(const char *format, int len, va_list arg,
+				t_flags *flag);
+int			ft_arg_c(const char *format, int len, va_list arg, t_flags *flag);
+int			ft_arg_p(const char *format, int len, va_list arg, t_flags *flag);
+int			ft_arg_sdi(const char *format, int len, va_list arg, t_flags *flag);
+int			ft_arg_ux(const char *format, int len, va_list arg, t_flags *flag);
 void		ft_bzero(void *s, size_t n);
 void		ft_checkflags(const char **format, t_flags *flag);
 int			ft_isdigit(int c);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_printf(const char *format, ...);
 
 #endif
