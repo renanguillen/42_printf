@@ -6,13 +6,13 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/13 15:54:03 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 15:57:01 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/ft_printf_b.h"
 
-static int	ft_nullpointer(int len, va_list arg, t_flags *flag)
+static int	ft_nullptr(int len, va_list arg, t_flags *flag)
 {
 	s = "(nil)";
 	flag->width -= ft_strlen(s);
@@ -34,7 +34,7 @@ static int	ft_nullpointer(int len, va_list arg, t_flags *flag)
 	return (len);
 }
 
-static int	ft_pointerlen(int len, va_list arg, t_flags *flag)
+static int	ft_ptrlen(int len, va_list arg, t_flags *flag)
 {
 	flag->width -= ft_countdigits(p, 16) + 2;
 	if (flag->width > 0)
@@ -63,8 +63,8 @@ int	ft_arg_p(int len, va_list arg, t_flags *flag)
 
 	p = va_arg(arg, unsigned long);
 	if (!p)
-		len = ft_nullpointer(len, arg, flag);
+		len = ft_nullptr(len, arg, flag);
 	else
-		len = ft_pointerlen(len, arg, flag);
+		len = ft_ptrlen(len, arg, flag);
 	return (len);
 }
