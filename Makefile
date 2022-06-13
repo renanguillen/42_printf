@@ -33,13 +33,15 @@ SRCS_BONUS = $(addprefix $(PATH_SRCS_BONUS),\
 		ft_validation_b.c\
 		ft_arg_c.c\
 		ft_arg_p.c\
-		ft_arg_sdi.c\
-		ft_arg_ux.c\
+		ft_arg_s.c\
+		ft_arg_udi.c\
+		ft_arg_x.c\
 		ft_putchar.c\
 		ft_bzero.c\
 		ft_checkflags.c\
 		ft_isdigit.c\
-		ft_substr.c)
+		ft_substr.c\
+		ft_freethis.c)
 
 OBJS_BONUS = $(patsubst $(PATH_SRCS_BONUS)%.c, $(PATH_OBJS_BONUS)%.o, $(SRCS_BONUS))
 

@@ -1,57 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg_sdi.c                                       :+:      :+:    :+:   */
+/*   ft_arg_udi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:50:09 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/09 23:46:41 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:50:25 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/ft_printf_b.h"
 
-int	ft_arg_sdi(const char *format, int len, va_list arg, t_flags *flag)
+int	ft_arg_udi(const char *format, int len, va_list arg, t_flags *flag)
 {
-	char		*s;
-	char		*str;
 	long int	i;
 	int			intlen;
 	int			signal;
 
 	signal = 1;
-	if (*format == 's')
-	{
-		str = va_arg(arg, char *);
-		s = ft_substr(str, 0, ft_strlen(str));
-		if (!s)
-			s = ft_substr("(null)", 0, 6);
-		else if (flag->precision)
-			s = ft_substr(s, 0, flag->precision);
-		flag->width -= ft_strlen(s);
-		if (flag->width > 0)
-				len += flag->width;
-		if (flag->left)
-		{
-			write(1, s, ft_strlen(s));
-			while (flag->width-- > 0)
-				ft_putchar(' ');
-		}
-		else
-		{
-			while (flag->width-- > 0)
-				ft_putchar(' ');
-			write(1, s, ft_strlen(s));
-		}
-		len = len + ft_strlen(s);
-		if (s)
-		{
-			free(s);
-			s = NULL;
-		}
-	}
-	else if (*format == 'd' || *format == 'i' || *format == 'u')
+	if (*format == 'd' || *format == 'i' || *format == 'u')
 	{
 		if (*format == 'u')
 			i = va_arg(arg, unsigned int);

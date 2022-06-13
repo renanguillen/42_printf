@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 17:14:58 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/12 22:37:52 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:54:18 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ int			ft_validation(const char *format, int len, va_list arg,
 				t_flags *flag);
 int			ft_arg_c(const char *format, int len, va_list arg, t_flags *flag);
 int			ft_arg_p(int len, va_list arg, t_flags *flag);
-int			ft_arg_sdi(const char *format, int len, va_list arg, t_flags *flag);
-int			ft_arg_ux(const char *format, int len, va_list arg, t_flags *flag);
+int			ft_arg_s(int len, va_list arg, t_flags *flag);
+int			ft_arg_udi(const char *format, int len, va_list arg, t_flags *flag);
+int			ft_arg_x(const char *format, int len, va_list arg, t_flags *flag);
 void		ft_bzero(void *s, size_t n);
 void		ft_checkflags(const char **format, t_flags *flag);
 int			ft_isdigit(int c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
+void		ft_freethis(void *ptr);
 int			ft_printf(const char *format, ...);
 
 #endif

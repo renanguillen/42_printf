@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:49:05 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/12 22:34:01 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:19:07 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_arg_c(const char *format, int len, va_list arg, t_flags *flag)
 {
 	int	i;
 
-	(void)flag;
 	if (*format == '%')
 		write(1, "%", 1);
 	else if (*format == 'c')

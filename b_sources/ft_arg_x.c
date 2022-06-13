@@ -6,13 +6,13 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/09 23:39:19 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:50:54 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/ft_printf_b.h"
 
-int	ft_arg_ux(const char *format, int len, va_list arg, t_flags *flag)
+int	ft_arg_x(const char *format, int len, va_list arg, t_flags *flag)
 {
 	unsigned int	u;
 	int				hexalen;
