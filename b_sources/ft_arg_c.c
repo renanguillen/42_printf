@@ -6,11 +6,22 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:49:05 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/09 21:38:12 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/12 22:34:01 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/ft_printf_b.h"
+
+static int	ft_spacelen(int len, t_flags *flag)
+{
+	while (flag->width > 0)
+	{
+		ft_putchar(' ');
+		flag->width--;
+		len++;
+	}
+	return (len);
+}
 
 int	ft_arg_c(const char *format, int len, va_list arg, t_flags *flag)
 {
@@ -26,21 +37,11 @@ int	ft_arg_c(const char *format, int len, va_list arg, t_flags *flag)
 		if (flag->left)
 		{
 			write(1, &i, 1);
-			while (flag->width > 0)
-			{
-				ft_putchar(' ');
-				flag->width--;
-				len++;
-			}
+			len = ft_spacelen(len, flag);
 		}
 		else
 		{
-			while (flag->width > 0)
-			{
-				ft_putchar(' ');
-				flag->width--;
-				len++;
-			}
+			len = ft_spacelen(len, flag);
 			write(1, &i, 1);
 		}
 	}

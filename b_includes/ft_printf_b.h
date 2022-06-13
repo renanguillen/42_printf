@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 17:14:58 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/09 22:21:57 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/12 22:37:52 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_countdigits(unsigned long num, int base);
 int			ft_validation(const char *format, int len, va_list arg,
 				t_flags *flag);
 int			ft_arg_c(const char *format, int len, va_list arg, t_flags *flag);
-int			ft_arg_p(const char *format, int len, va_list arg, t_flags *flag);
+int			ft_arg_p(int len, va_list arg, t_flags *flag);
 int			ft_arg_sdi(const char *format, int len, va_list arg, t_flags *flag);
 int			ft_arg_ux(const char *format, int len, va_list arg, t_flags *flag);
 void		ft_bzero(void *s, size_t n);

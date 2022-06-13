@@ -82,7 +82,7 @@ test: bclean bonus
 	cc $(CFLAGS) -g main.c $(NAME_BONUS) -o test
 	./test
 
-tclean: fclean
+tclean: bclean
 	$(REMOVE) test
 
 .PHONY: all clean fclean re test tclean
