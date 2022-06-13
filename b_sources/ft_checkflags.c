@@ -6,11 +6,30 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 19:27:41 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/06 20:21:28 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:10:23 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/ft_printf_b.h"
+
+static void	ft_sizecases(const char ***format, t_flags *flag)
+{
+	while (ft_isdigit(***format))
+	{
+		flag->width = (10 * flag->width) + (***format - 48);
+		(**format)++;
+	}
+	if (***format == '.')
+	{
+		flag->dot = 1;
+		(**format)++;
+		while (ft_isdigit(***format))
+		{
+			flag->precision = (10 * flag->precision) + (***format - 48);
+			(**format)++;
+		}
+	}
+}
 
 void	ft_checkflags(const char **format, t_flags *flag)
 {
@@ -32,19 +51,5 @@ void	ft_checkflags(const char **format, t_flags *flag)
 			flag->zero = 1;
 		(*format)++;
 	}
-	while (ft_isdigit(**format))
-	{
-		flag->width = (10 * flag->width) + (**format - 48);
-		(*format)++;
-	}
-	if (**format == '.')
-	{
-		flag->dot = 1;
-		(*format)++;
-		while (ft_isdigit(**format))
-		{
-			flag->precision = (10 * flag->precision) + (**format - 48);
-			(*format)++;
-		}
-	}
+	ft_sizecases(&format, flag);
 }
