@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:50:09 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/13 21:35:25 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/22 17:14:28 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,17 @@ static void	ft_identation_right(int signal, int i, t_flags *flag)
 	ft_putbase(i, DECA);
 }
 
+static int	ft_wid_adjustments(long int i, int signal, int len, t_flags *flag)
+{
+	if (signal && (flag->plus || flag->space))
+		len++;
+	if (i < 0 || flag->plus || flag->space)
+		flag->width--;
+	if (flag->width > 0)
+		len += flag->width;
+	return (len);
+}
+
 int	ft_arg_udi(const char *format, int len, va_list arg, t_flags *flag)
 {
 	long int	i;
@@ -61,12 +72,7 @@ int	ft_arg_udi(const char *format, int len, va_list arg, t_flags *flag)
 	}
 	intlen = ft_countdigits(i, 10);
 	flag->width -= intlen;
-	if (signal && (flag->plus || flag->space))
-		len++;
-	if (i < 0 || flag->plus || flag->space)
-		flag->width--;
-	if (flag->width > 0)
-		len += flag->width;
+	len = ft_wid_adjustments(i, signal, len, flag);
 	if (flag->left)
 		ft_identation_left(signal, i, flag);
 	else

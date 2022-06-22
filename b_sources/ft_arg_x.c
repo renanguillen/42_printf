@@ -1,16 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg_ux.c                                        :+:      :+:    :+:   */
+/*   ft_arg_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:51:33 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/13 16:50:54 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:51:32 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../b_includes/ft_printf_b.h"
+
+static void	ft_identation_l(const char *format, unsigned int u, t_flags *flag)
+{
+	if (flag->sharp)
+		write(1, "0x", 2);
+	if (*format == 'x')
+		ft_putbase(u, HEXA_LOWER);
+	else
+		ft_putbase(u, HEXA_UPPER);
+	while (flag->width-- > 0)
+		ft_putchar(' ');
+}
+
+static void	ft_identation_r(const char *format, unsigned int u, t_flags *flag)
+{
+	while (flag->width-- > 0)
+		ft_putchar(' ');
+	if (flag->sharp)
+		write(1, "0x", 2);
+	if (*format == 'x')
+		ft_putbase(u, HEXA_LOWER);
+	else
+		ft_putbase(u, HEXA_UPPER);
+}
 
 int	ft_arg_x(const char *format, int len, va_list arg, t_flags *flag)
 {
@@ -28,27 +52,9 @@ int	ft_arg_x(const char *format, int len, va_list arg, t_flags *flag)
 	if (flag->width > 0)
 		len += flag->width;
 	if (flag->left)
-	{
-		if (flag->sharp)
-			write(1, "0x", 2);
-		if (*format == 'x')
-			ft_putbase(u, HEXA_LOWER);
-		else
-			ft_putbase(u, HEXA_UPPER);
-		while (flag->width-- > 0)
-			ft_putchar(' ');
-	}
+		ft_identation_l(format, u, flag);
 	else
-	{
-		while (flag->width-- > 0)
-			ft_putchar(' ');
-		if (flag->sharp)
-			write(1, "0x", 2);
-		if (*format == 'x')
-			ft_putbase(u, HEXA_LOWER);
-		else
-			ft_putbase(u, HEXA_UPPER);
-	}
+		ft_identation_r(format, u, flag);
 	len += hexalen;
 	return (len);
 }
