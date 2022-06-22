@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_substr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 20:38:45 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/09 22:22:12 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/22 20:17:14 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

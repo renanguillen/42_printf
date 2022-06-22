@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countdigits.c                                   :+:      :+:    :+:   */
+/*   ft_bzero_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 19:28:25 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/06 20:02:03 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/04/07 17:50:46 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/06/22 20:16:44 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
-int	ft_countdigits(unsigned long num, int base)
+void	ft_bzero(void *s, size_t n)
 {
-	int	count;
+	char	*aux;
 
-	count = 0;
-	if (num == 0)
-		return (1);
-	while (num >= 1)
+	aux = s;
+	while (n > 0)
 	{
-		num /= base;
-		count++;
+		aux[n - 1] = 0;
+		n--;
 	}
-	return (count);
 }

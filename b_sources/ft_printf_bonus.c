@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_b.c                                      :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 22:08:51 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/09 21:17:05 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/22 20:17:02 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
 int	ft_printf(const char *format, ...)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checkflags.c                                    :+:      :+:    :+:   */
+/*   ft_checkflags_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 19:27:41 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/13 16:10:23 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/22 20:16:48 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
 static void	ft_sizecases(const char ***format, t_flags *flag)
 {

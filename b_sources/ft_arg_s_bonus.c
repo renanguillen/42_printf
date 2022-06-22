@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg_s.c                                         :+:      :+:    :+:   */
+/*   ft_arg_s_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:43:30 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/13 18:36:54 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/22 20:16:29 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
 static char	*ft_strtrim(char *str, t_flags *flag)
 {

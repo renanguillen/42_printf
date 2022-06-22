@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg_udi.c                                       :+:      :+:    :+:   */
+/*   ft_arg_udi_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:50:09 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/22 17:14:28 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/22 23:37:44 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
 static void	ft_identation_left(int signal, int i, t_flags *flag)
 {
@@ -20,8 +20,11 @@ static void	ft_identation_left(int signal, int i, t_flags *flag)
 		ft_putchar(' ');
 	if (!signal)
 		ft_putchar('-');
-	ft_putbase(i, DECA);
-	while (!flag->zero && flag->width-- > 0)
+	if (i == -2147483648)
+		ft_putbase(2147483648, DECA);
+	else
+		ft_putbase(i, DECA);
+	while (!flag->zero && flag->width-- > 1)
 		ft_putchar(' ');
 	while (flag->zero && flag->width-- > 0)
 		ft_putchar('0');
@@ -39,7 +42,10 @@ static void	ft_identation_right(int signal, int i, t_flags *flag)
 		ft_putchar('+');
 	else if (!signal)
 		ft_putchar('-');
-	ft_putbase(i, DECA);
+	if (i == -2147483648)
+		ft_putbase(2147483648, DECA);
+	else
+		ft_putbase(i, DECA);
 }
 
 static int	ft_wid_adjustments(long int i, int signal, int len, t_flags *flag)
@@ -67,8 +73,9 @@ int	ft_arg_udi(const char *format, int len, va_list arg, t_flags *flag)
 	if (i < 0)
 	{
 		signal--;
-		len++;
 		i *= -1;
+		if (i > 9)
+			len++;
 	}
 	intlen = ft_countdigits(i, 10);
 	flag->width -= intlen;

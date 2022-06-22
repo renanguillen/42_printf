@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_countdigits_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 19:38:57 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/06 20:02:31 by ridalgo-         ###   ########.fr       */
+/*   Created: 2022/05/26 19:28:25 by ridalgo-          #+#    #+#             */
+/*   Updated: 2022/06/22 20:16:51 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
-void	ft_putchar(char c)
+int	ft_countdigits(unsigned long num, int base)
 {
-	write (1, &c, 1);
+	int	count;
+
+	count = 0;
+	if (num == 0)
+		return (1);
+	while (num >= 1)
+	{
+		num /= base;
+		count++;
+	}
+	return (count);
 }

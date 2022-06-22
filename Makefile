@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-NAME_BONUS = libftprintf.a
+NAME_BONUS = libftprintf_bonus.a
 
 PATH_SRCS = ./sources/
 PATH_OBJS = ./objects/
@@ -26,22 +26,22 @@ CFLAGS = -Wall -Werror -Wextra -g
 INCLUDES = -I $(PATH_INCLUDES)
 
 SRCS_BONUS = $(addprefix $(PATH_SRCS_BONUS),\
-		ft_printf_b.c\
-		ft_strlen.c\
-		ft_putbase.c\
-		ft_countdigits.c\
-		ft_validation_b.c\
-		ft_arg_c.c\
-		ft_arg_p.c\
-		ft_arg_s.c\
-		ft_arg_udi.c\
-		ft_arg_x.c\
-		ft_putchar.c\
-		ft_bzero.c\
-		ft_checkflags.c\
-		ft_isdigit.c\
-		ft_substr.c\
-		ft_freethis.c)
+		ft_printf_bonus.c\
+		ft_strlen_bonus.c\
+		ft_putbase_bonus.c\
+		ft_countdigits_bonus.c\
+		ft_validation_bonus.c\
+		ft_arg_c_bonus.c\
+		ft_arg_p_bonus.c\
+		ft_arg_s_bonus.c\
+		ft_arg_udi_bonus.c\
+		ft_arg_x_bonus.c\
+		ft_putchar_bonus.c\
+		ft_bzero_bonus.c\
+		ft_checkflags_bonus.c\
+		ft_isdigit_bonus.c\
+		ft_substr_bonus.c\
+		ft_freethis_bonus.c)
 
 OBJS_BONUS = $(patsubst $(PATH_SRCS_BONUS)%.c, $(PATH_OBJS_BONUS)%.o, $(SRCS_BONUS))
 
@@ -71,6 +71,7 @@ bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJS_BONUS)
 	$(MAKELIB) $(NAME_BONUS) $(OBJS_BONUS)
+	cp $(NAME_BONUS) $(NAME)
 
 $(PATH_OBJS_BONUS)%.o: $(PATH_SRCS_BONUS)%.c
 	mkdir -p $(PATH_OBJS_BONUS)

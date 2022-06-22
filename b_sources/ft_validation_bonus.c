@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validation_b.c                                  :+:      :+:    :+:   */
+/*   ft_validation_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 19:53:44 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/13 16:51:58 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/22 20:17:18 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../b_includes/ft_printf_b.h"
+#include "../b_includes/ft_printf_bonus.h"
 
 int	ft_validation(const char *format, int len, va_list arg, t_flags *flag)
 {
