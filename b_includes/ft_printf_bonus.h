@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:18:06 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/22 20:18:11 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:05:40 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,16 @@
 
 typedef struct s_flags
 {
-	int	dot;
-	int	width;
-	int	left;
-	int	zero;
-	int	sharp;
-	int	space;
-	int	plus;
-	int	precision;
+	int		dot;
+	int		width;
+	int		left;
+	int		zero;
+	int		sharp;
+	int		space;
+	int		plus;
+	int		precision;
+	char	*prefix;
+	char	*base;
 }		t_flags;
 
 int			ft_strlen(const char *s);

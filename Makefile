@@ -81,8 +81,8 @@ bclean: fclean
 	$(REMOVE) $(PATH_OBJS_BONUS)
 	$(REMOVE) $(NAME_BONUS)
 
-test: bclean bonus
-	cc $(CFLAGS) -g main.c $(NAME_BONUS) -o test
+test: bonus
+	cc $(CFLAGS) main.c $(NAME_BONUS) -o test
 	./test
 
 tclean: bclean

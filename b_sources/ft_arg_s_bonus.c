@@ -6,7 +6,7 @@
 /*   By: ridalgo- <ridalgo-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:43:30 by ridalgo-          #+#    #+#             */
-/*   Updated: 2022/06/22 20:16:29 by ridalgo-         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:25:26 by ridalgo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 static char	*ft_strtrim(char *str, t_flags *flag)
 {
 	if (!str)
-		str = ft_substr("(nil)", 0, 5);
+	{
+		if (!flag->dot)
+			str = ft_substr("(nil)", 0, 5);
+		else
+			str = ft_substr("(nil)", 0, flag->precision);
+	}
 	else
-		str = ft_substr(str, 0, ft_strlen(str));
-	if (flag->precision)
-		str = ft_substr(str, 0, flag->precision);
+	{
+		if (!flag->dot)
+			str = ft_substr(str, 0, ft_strlen(str));
+		else
+			str = ft_substr(str, 0, flag->precision);
+	}
 	return (str);
 }
 
